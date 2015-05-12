@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSnake", "CSnake\CSnake.csproj", "{1BE6A176-B861-4332-A84B-8617187588B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSnake", "CSnake.csproj", "{A79C9B7F-8B79-40FD-A00F-A06570B78293}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1BE6A176-B861-4332-A84B-8617187588B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BE6A176-B861-4332-A84B-8617187588B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BE6A176-B861-4332-A84B-8617187588B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BE6A176-B861-4332-A84B-8617187588B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79C9B7F-8B79-40FD-A00F-A06570B78293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79C9B7F-8B79-40FD-A00F-A06570B78293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79C9B7F-8B79-40FD-A00F-A06570B78293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79C9B7F-8B79-40FD-A00F-A06570B78293}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

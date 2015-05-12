@@ -1,4 +1,4 @@
-﻿namespace Snake
+﻿namespace CSnake
 {
     using System;
     using System.Collections.Generic;
@@ -14,9 +14,9 @@
         internal static double sleepTime = 100;
         public struct Position
         {
-            internal int x { get;  set; }
-            internal int y { get; set; }
-            public Position(int x, int y): this()
+            internal int x;
+            internal int y;
+            public Position(int x, int y)
             {
                 this.x = x;
                 this.y = y;
@@ -30,7 +30,7 @@
             Console.Clear();
 
             Queue<Position> snakeElements = new Queue<Position>();
-            Random randomGenerator = new Random();            
+            Random randomGenerator = new Random();
 
             Position[] moveDirections = new Position[] {
                 new Position(1, 0), 
@@ -107,7 +107,7 @@
                 {
                     Console.Clear();
                     Console.SetCursorPosition(0, 0);
-                    Console.ForegroundColor = ConsoleColor.Black;                   
+                    Console.ForegroundColor = ConsoleColor.Black;
 
                     Console.SetCursorPosition(leftOffSet, topOffSet);
                     Console.WriteLine("Game over!!! Your points: {0}", snakeElements.Count);
