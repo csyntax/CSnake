@@ -1,2 +1,2 @@
 # CSnake
-C# console classic snake game
+C# console snake game
