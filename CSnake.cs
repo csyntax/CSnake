@@ -1,28 +1,20 @@
-﻿namespace CSnake
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Linq;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Linq;
+using System.Text;
 
-    static class CSnake
+namespace CSnake
+{
+    public static class CSnake
     {
-        internal static int currentDirection = 0;
-        internal static int leftOffSet = Console.WindowWidth / 3;
-        internal static int topOffSet = Console.WindowHeight / 3;
-        internal static double sleepTime = 100;
-        public struct Position
-        {
-            internal int x;
-            internal int y;
-            public Position(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-            }
-        }
-        static void Main(string[] args)
+        private static int currentDirection = 0;
+        private static int leftOffSet = Console.WindowWidth / 3;
+        private static int topOffSet = Console.WindowHeight / 3;
+        private static double sleepTime = 100;
+        private static Random randomGenerator = new Random();
+
+        public static void Main(string[] args)
         {
             Console.Title = "Snake";
             Console.BackgroundColor = ConsoleColor.White;
@@ -30,8 +22,7 @@
             Console.Clear();
 
             Queue<Position> snakeElements = new Queue<Position>();
-            Random randomGenerator = new Random();
-
+            
             Position[] moveDirections = new Position[] {
                 new Position(1, 0), 
                 new Position(0, 1), 
@@ -55,12 +46,12 @@
 
             foreach (var item in snakeElements)
             {
-                Console.SetCursorPosition(item.x, item.y);
+                Console.SetCursorPosition(item.X, item.Y);
                 Console.Write("*");
             }
 
             Position snakeHead = snakeElements.Last();
-            Console.SetCursorPosition(snakeHead.x, snakeHead.y);
+            Console.SetCursorPosition(snakeHead.X, snakeHead.Y);
 
             Console.Write("@");
 
@@ -86,23 +77,22 @@
                     {
                         if (currentDirection != 1) currentDirection = 3;
                     }
-
                 }
 
-                Console.SetCursorPosition(food.x, food.y);
+                Console.SetCursorPosition(food.X, food.Y);
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write("+");
 
                 Position prevSnakeHead = snakeElements.Last();
                 Position newSnakeHead = new Position(
-                    prevSnakeHead.x + moveDirections[currentDirection].x,
-                    prevSnakeHead.y + moveDirections[currentDirection].y
+                    prevSnakeHead.X + moveDirections[currentDirection].X,
+                    prevSnakeHead.Y + moveDirections[currentDirection].Y
                 );
 
-                if (newSnakeHead.x >= Console.WindowWidth ||
-                    newSnakeHead.x < 0 ||
-                    newSnakeHead.y >= Console.WindowHeight ||
-                    newSnakeHead.y < 0 ||
+                if (newSnakeHead.X >= Console.WindowWidth ||
+                    newSnakeHead.X < 0 ||
+                    newSnakeHead.Y >= Console.WindowHeight ||
+                    newSnakeHead.Y < 0 ||
                     snakeElements.Contains(newSnakeHead))
                 {
                     Console.Clear();
@@ -118,22 +108,22 @@
                     return;
                 }
 
-                Console.SetCursorPosition(prevSnakeHead.x, prevSnakeHead.y);
+                Console.SetCursorPosition(prevSnakeHead.X, prevSnakeHead.Y);
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Write("*");
 
                 snakeElements.Enqueue(newSnakeHead);
 
-                Console.SetCursorPosition(newSnakeHead.x, newSnakeHead.y);
+                Console.SetCursorPosition(newSnakeHead.X, newSnakeHead.Y);
                 Console.Write("@");
 
-                if (newSnakeHead.x == food.x && newSnakeHead.y == food.y)
+                if (newSnakeHead.X == food.X && newSnakeHead.Y == food.Y)
                 {
                     food = new Position(
                         randomGenerator.Next(1, Console.WindowWidth - 1),
                         randomGenerator.Next(1, Console.WindowHeight - 1));
 
-                    Console.SetCursorPosition(food.x, food.y);
+                    Console.SetCursorPosition(food.X, food.Y);
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.Write("+");
                 }
@@ -141,7 +131,7 @@
                 {
                     Position p = snakeElements.Dequeue();
 
-                    Console.SetCursorPosition(p.x, p.y);
+                    Console.SetCursorPosition(p.X, p.Y);
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Write(" ");
                 }
